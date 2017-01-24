@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>TP04</title>
+
+<link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<style>
+body {
+	padding-top: 50px;
+}
+
+</style>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">TP04</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="jumbotron">
+			<h1>Liste des clients</h1>
+			<p>Vous trouverez ici la liste exhaustive de tous nos clients</p>
+
+		</div>
+
+
+		<table class="table table-striped">
+				#foreach($client in $clients) 
+				<tr>
+					<td>$client.nom</td>
+					<td>$client.prenom</td>
+					<td>
+						#foreach($commande in $client.commandes) 
+						Commande #$commande.id : 
+						#foreach($produit in $commande.produits)
+						${produit.nom}#if( $foreach.hasNext ), #end
+						#end<br/>
+						#end
+					</td>
+					<td><a href="$client.id/delete" class="btn btn-danger"><span
+							class="glyphicon glyphicon-trash"></span></a></td>
+				</tr>
+				#end
+		</table>
+	</div>
+
+
+
+
+</body>
+</html>
