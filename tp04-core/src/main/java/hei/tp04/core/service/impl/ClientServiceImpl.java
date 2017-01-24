@@ -34,10 +34,14 @@ public class ClientServiceImpl implements ClientService {
         return clientDAO.findAll();
     }
 
-
     @Override
     public List<Client> findAllWithCommandes() {
         List<Client> clients = clientDAO.findAllWithCommandes();
         return clients;
+    }
+
+    @Override
+    public void deleteClient(int idClient) {
+        clientDAO.delete((long) idClient);
     }
 }
