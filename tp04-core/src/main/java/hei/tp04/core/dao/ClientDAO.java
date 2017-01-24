@@ -9,7 +9,6 @@ public interface ClientDAO extends JpaRepository<Client, Long> {
 
     List<Client> findByNom(String nom);
 
-
     @Query("SELECT DISTINCT c FROM Client c LEFT JOIN FETCH c.commandes co LEFT JOIN FETCH co.produits")
     List<Client> findAllWithCommandes();
 }

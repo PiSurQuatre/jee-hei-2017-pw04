@@ -17,4 +17,5 @@ public interface ClientService {
 
     List<Client> findAllWithCommandes();
 
+    void deleteClient(int idClient);
 }
